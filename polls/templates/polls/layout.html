@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Poll</title>
+        <link href="{% static '/polls/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <h1> This is a Template for polls</h1>
+        
+        {% block body %}
+        {% endblock %}
+
+        <form action="{% url 'polls:addpoll' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="form_content">
+            <input type="submit">
+        </form>
+
+
+        Here are all the polls added: </br>
+        {% for poll in added_polls %}
+            <ul>
+                <li>{{ poll }}</li>
+            </ul>
+        {% endfor %}
+
+    </body>
+</html>

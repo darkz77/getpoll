@@ -1,0 +1,7 @@
+{% extends "polls/layout.html" %}
+
+{% block body %}
+    Success add {{ content }} !
+    <a href="{% url 'polls:index' %}">Return</a>
+
+{% endblock %}
